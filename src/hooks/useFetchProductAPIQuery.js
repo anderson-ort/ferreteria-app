@@ -4,7 +4,7 @@ import { productServiceAPIQuery } from '../lib/services/products/productServiceA
 
 
 
-export const useFetchProductsAPIQuery = (query, debounceTime = 1000) => {
+export const useFetchProductsAPIQuery = (query, debounceTime = 2000) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,7 +26,6 @@ export const useFetchProductsAPIQuery = (query, debounceTime = 1000) => {
 
           return cleanProduct
         })
-        console.log(productos);
 
         setProducts(productos);
       } catch (err) {
