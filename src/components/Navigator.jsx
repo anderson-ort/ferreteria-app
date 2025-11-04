@@ -15,18 +15,18 @@ const Navigator = () => {
             <nav>
                 <NavLink to="/login">Login/SignUp</NavLink>
                 <span> | </span>
-                <a href="/store">Store</a>
+                <NavLink to="/store">Store</NavLink>
             </nav>
         );
     }
-
+    
     return (
         <nav>
             <button onClick={logout}>Logout</button>
             <span> | </span>
-            <a href="/store">Store</a>
+            <NavLink to="/store">Store</NavLink>
             <span> | </span>
-            <a href="/dashboard">Dashboard</a>
+            <NavLink to="/dashboard">Dashboard</NavLink>
         </nav>
     );
 };
