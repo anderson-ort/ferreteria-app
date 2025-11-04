@@ -1,0 +1,258 @@
+/* ProductStoreDisplay.module.css */
+
+.storeContainer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(1, 1fr);
+  /* Mobile por defecto */
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* Tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    /* Desktop */
+  }
+}
+
+.storeMessage {
+  text-align: center;
+  font-size: 1.1rem;
+  color: whitesmoke;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Formulario de búsqueda mejorado */
+.searchForm {
+  margin-bottom: 2rem;
+}
+
+.searchContainer {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+
+.searchInputWrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.clearButton {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.searchButton {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.searchButton:hover {
+  background-color: gray;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.searchButton:active {
+  transform: translateY(0);
+}
+
+/* Estado de carga y error */
+.status {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  padding: 2rem;
+}
+
+/* Contenedor de paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Botones de paginación */
+.pageButton {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageButton:hover {
+  background: black;
+  border-color: #555;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Texto informativo de página */
+.pageInfo {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive para el formulario de búsqueda */
+@media (max-width: 640px) {
+  .searchContainer {
+    flex-direction: column;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+}
+
+
+/* ProductStoreDisplay.module.css */
+
+/* Contenedor del logo */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+/* Estilos del logo */
+.logo {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Versión más pequeña para móviles */
+@media (max-width: 640px) {
+  .logoContainer {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo {
+    max-width: 150px;
+  }
+}
+
+/* Versión para tablets */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .logo {
+    max-width: 180px;
+  }
+}
+
+/* Efectos adicionales para dark mode si lo necesitas */
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  }
+}
+
+/* Si quieres un estilo más minimalista */
+.logoMinimal {
+  max-width: 160px;
+  filter: none;
+}
+
+.logoMinimal:hover {
+  transform: scale(1.02);
+  filter: none;
+}
+
+/* Si prefieres un logo con fondo circular */
+.logoCircularContainer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.logoCircular {
+  max-width: 120px;
+  height: auto;
+}
