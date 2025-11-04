@@ -9,7 +9,7 @@ const App = () => {
 	useAuthListener();
 
 	return (
-		<BrowserRouter basename="/ferreteria-app/">
+		<BrowserRouter>
 			<AppRoutes />
 		</BrowserRouter>
 	);

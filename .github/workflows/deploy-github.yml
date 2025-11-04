@@ -20,11 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
+
       - name: Build Vite app
         run: |
           npm run build
-          rm -rf dist/.gitkeep  # opcional, limpia archivos ocultos antiguos
+          rm -rf dist/.gitkeep
 
 
       - name: Deploy to GitHub Pages
