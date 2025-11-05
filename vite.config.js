@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/ferreteria-app/",
+  // base: "/ferreteria-app/",
+  base: "/",
   server:{
     port: process.env.PORT || 8080, 
     host: '0.0.0.0'
