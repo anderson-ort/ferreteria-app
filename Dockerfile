@@ -26,18 +26,10 @@ ENV VITE_API_ENDPOINT=$VITE_API_ENDPOINT
 RUN npm run build
 
 # ---------- Etapa 2: Producción ----------
-FROM node:20-alpine
+FROM nginx:alpine
 
-WORKDIR /app
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Instalar serve de manera global
-RUN npm install -g serve
-
-# Copiar los archivos build
-COPY --from=build /app/dist ./dist
-
-# Exponer el puerto que Cloud Run usará
 EXPOSE 8080
 
-# Ejecutar serve en modo SPA
-CMD ["serve", "-s", "dist", "-l", "8080"]
+CMD ["nginx", "-g", "daemon off"]
