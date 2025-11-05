@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: "/ferreteria-app/",
   server:{
-    port: process.env.PORT || 5173, 
+    port: process.env.PORT || 8080, 
     host: '0.0.0.0'
   }
 
