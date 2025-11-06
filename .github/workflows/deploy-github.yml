@@ -19,14 +19,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v4
+      - name: Set NodeJS enviroment
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
       
+      - name: Set enviroment level path to deploy
+        id: basepath
+        run: |
+          if [[ "${{ github.repository }}" == *".github.io" ]]; then
+            echo "PUBLIC_BASE_PATH=/"
+          else
+            REPO_NAME=$(basename "${{ github.repository }}")
+            echo "PUBLIC_BASE_PATH=/${REPO_NAME}/"
+          fi >> $GITHUB_ENV
+
+
       - name: Build
         env:
+          PUBLIC_BASE_PATH: ${{ env.PUBLIC_BASE_PATH }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
