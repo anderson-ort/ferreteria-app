@@ -1,0 +1,17 @@
+services:
+  local-deploy:
+    container_name: react-dev-ferreteria
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_KEY: ${VITE_SUPABASE_KEY}
+        VITE_API_ENDPOINT: ${VITE_API_ENDPOINT}
+
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
