@@ -31,16 +31,16 @@ jobs:
         id: basepath
         run: |
           if [[ "${{ github.repository }}" == *".github.io" ]]; then
-            echo "PUBLIC_BASE_PATH=/"
+            echo "VITE_PUBLIC_BASE_PATH=/"
           else
             REPO_NAME=$(basename "${{ github.repository }}")
-            echo "PUBLIC_BASE_PATH=/${REPO_NAME}/"
+            echo "VITE_PUBLIC_BASE_PATH=/${REPO_NAME}/"
           fi >> $GITHUB_ENV
 
 
       - name: Build
         env:
-          VITE_PUBLIC_BASE_PATH: ${{ env.PUBLIC_BASE_PATH }}
+          VITE_PUBLIC_BASE_PATH: ${{ env.VITE_PUBLIC_BASE_PATH }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
