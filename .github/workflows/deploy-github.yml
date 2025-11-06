@@ -40,7 +40,7 @@ jobs:
 
       - name: Build
         env:
-          PUBLIC_BASE_PATH: ${{ env.PUBLIC_BASE_PATH }}
+          VITE_PUBLIC_BASE_PATH: ${{ env.PUBLIC_BASE_PATH }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
