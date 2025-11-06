@@ -8,7 +8,7 @@ const App = () => {
 	// Supabase maneja internamente una sesión del usuario (guarda un token en localStorage y lo refresca automáticamente).
 	useAuthListener();
 	
-	const base = import.meta.env.PUBLIC_BASE_PATH || "/";
+	const base = import.meta.env.VITE_PUBLIC_BASE_PATH || "/";
 
 	return (
 		<BrowserRouter  basename={base}>
