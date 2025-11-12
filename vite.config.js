@@ -5,9 +5,23 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: process.env.VITE_PUBLIC_BASE_PATH || "/",
-  server:{
-    port: process.env.PORT || 8080, 
+  server: {
+    port: process.env.PORT || 8080,
     host: '0.0.0.0'
+  },
+  build: {
+    sourcemap: false,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        passes: 2,
+      },
+      mangle: true,
+      format: {
+        beautify: false,
+        comments: false,
+      },
+    }
   }
 
 })

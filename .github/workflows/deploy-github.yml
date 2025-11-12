@@ -1,4 +1,4 @@
-name: Deploy Ferreteria App -> GitHub Pages 
+name: Ferreteria App -> GitHub Pages -> Deploy, Espinaca. 
 
 on:
   push:
